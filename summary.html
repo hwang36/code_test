@@ -1,0 +1,17 @@
+{% extends "application/base.html" %}
+
+<section class="main-container" style="margin-top: 0px;">
+  {% for day_time, devices_summary in summary %}
+  <p>{{day_time}}</p>
+  <!--loop through each device-->
+    {% for device, one_devices_summary in devices_summary %}
+    <div>
+      <h4>{{device}}</h4>
+      <h4>{{one_devices_summary.max_kwh}}</h4>
+      <h4>{{one_devices_summary.min_kwh}}</h4>
+      <h4>{{one_devices_summary.ave_kwh}}</h4>
+    </div>
+    <div>
+      <img class="dataGraph" src="{{one_devices_summary.graphNm}}">
+    </div>
+</section>
